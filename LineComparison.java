@@ -7,6 +7,11 @@ public class LineComparison {
         return line1.equals(line2);
     }
 
+    static int callCompareToMethod(String line1, String line2){
+        System.out.print("RESULT OF compareTo method --> ");
+        return line1.compareTo(line2);
+    }
+
     public static void main(String[] args) {
         System.out.println("LINE COMPARISON CODE");
 
@@ -33,6 +38,15 @@ public class LineComparison {
             System.out.println("Lines are not equal");
         }else{
             System.out.println("Lines are equal");
+        }
+
+        int compareToResult = callCompareToMethod(line1, line2);
+        if(compareToResult > 0){
+            System.out.println("first line is greater than second line");
+        } else if (compareToResult < 0) {
+            System.out.println("second line is greater than first line");
+        } else if (compareToResult == 0) {
+            System.out.println("Both lines are equal");
         }
     }
 }
