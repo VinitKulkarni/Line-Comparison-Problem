@@ -1,6 +1,12 @@
 package com.bridgelabz.Day3PP;
 
 public class LineComparison {
+
+    static boolean callEqualsMethod(String line1, String line2){
+        System.out.print("RESULT OF equals method --> ");
+        return line1.equals(line2);
+    }
+
     public static void main(String[] args) {
         System.out.println("LINE COMPARISON CODE");
 
@@ -19,5 +25,14 @@ public class LineComparison {
         double syValueofSquare = Math.pow((sY2-sY1),2);
         double lengthOfLine2 = Math.sqrt(sxValueOfSquare + syValueofSquare);
         System.out.println("Line2 = " + lengthOfLine2);
+
+        String line1 = String.valueOf(lengthOfLine1);
+        String line2 = String.valueOf(lengthOfLine2);
+        boolean equalsResult = callEqualsMethod(line1, line2);
+        if(equalsResult != true){
+            System.out.println("Lines are not equal");
+        }else{
+            System.out.println("Lines are equal");
+        }
     }
 }
