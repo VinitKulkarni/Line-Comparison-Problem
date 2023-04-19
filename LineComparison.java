@@ -37,14 +37,6 @@ class LineEvaluate {
 public class LineComparison {
     public static void main(String[] args) {
         System.out.println("LINE COMPARISON CODE");
-
-        /*line points over view
-        double fX1 = 2, fX2 = 4;
-        double fY1 = 6, fY2 = 8;
-
-        double sX1 = 10, sX2 = 30;
-        double sY1 = 17, sY2 = 19;*/
-
         LineEvaluate object = new LineEvaluate();
 
         double lineLengthOne = object.calculateLineLength(2,4,6,8);
