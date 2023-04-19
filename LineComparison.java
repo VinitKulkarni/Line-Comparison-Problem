@@ -1,46 +1,29 @@
-package com.bridgelabz.Day3PP;
+package com.bridgelabz.Day3PP2;
 
-public class LineComparison {
-
-    static boolean callEqualsMethod(String line1, String line2){
-        System.out.print("RESULT OF equals method --> ");
-        return line1.equals(line2);
+class LineEvaluate {
+    public double calculateLineLength(int x1, int x2, int y1, int y2) {
+        double fxValueOfSquare = Math.pow((x2-x1),2);
+        double fyValueofSquare = Math.pow((y2-y1),2);
+        double lengthOfLine = Math.sqrt(fxValueOfSquare + fyValueofSquare);
+        return lengthOfLine;
     }
 
-    static int callCompareToMethod(String line1, String line2){
-        System.out.print("RESULT OF compareTo method --> ");
-        return line1.compareTo(line2);
-    }
-
-    public static void main(String[] args) {
-        System.out.println("LINE COMPARISON CODE");
-
-        double fX1 = 2, fX2 = 4;
-        double fY1 = 6, fY2 = 8;
-
-        double sX1 = 10, sX2 = 30;
-        double sY1 = 17, sY2 = 19;
-
-        double fxValueOfSquare = Math.pow((fX2-fX1),2);
-        double fyValueofSquare = Math.pow((fY2-fY1),2);
-        double lengthOfLine1 = Math.sqrt(fxValueOfSquare + fyValueofSquare);
-        System.out.println("Line1 = " + lengthOfLine1);
-
-        double sxValueOfSquare = Math.pow((sX2-sX1),2);
-        double syValueofSquare = Math.pow((sY2-sY1),2);
-        double lengthOfLine2 = Math.sqrt(sxValueOfSquare + syValueofSquare);
-        System.out.println("Line2 = " + lengthOfLine2);
-
-        String line1 = String.valueOf(lengthOfLine1);
-        String line2 = String.valueOf(lengthOfLine2);
-        boolean equalsResult = callEqualsMethod(line1, line2);
+    public void callEqualsMethod(Double lineLengthOne, Double lineLengthTwo){
+        //Used wrapper class to convert to object
+        System.out.println("--- equals result ---");
+        boolean equalsResult = lineLengthOne.equals(lineLengthTwo);
         if(equalsResult != true){
             System.out.println("Lines are not equal");
         }else{
             System.out.println("Lines are equal");
         }
+        System.out.println();
+    }
 
-        int compareToResult = callCompareToMethod(line1, line2);
+    public void callCompareToMethod(Double lineLengthOne, Double lineLengthTwo){
+        //Used wrapper class to convert to object
+        System.out.println("--- compareTo method result ---");
+        int compareToResult = lineLengthOne.compareTo(lineLengthTwo);
         if(compareToResult > 0){
             System.out.println("first line is greater than second line");
         } else if (compareToResult < 0) {
@@ -48,5 +31,29 @@ public class LineComparison {
         } else if (compareToResult == 0) {
             System.out.println("Both lines are equal");
         }
+        System.out.println();
+    }
+}
+public class LineComparison {
+    public static void main(String[] args) {
+        System.out.println("LINE COMPARISON CODE");
+
+        /*line points over view
+        double fX1 = 2, fX2 = 4;
+        double fY1 = 6, fY2 = 8;
+
+        double sX1 = 10, sX2 = 30;
+        double sY1 = 17, sY2 = 19;*/
+
+        LineEvaluate object = new LineEvaluate();
+
+        double lineLengthOne = object.calculateLineLength(2,4,6,8);
+        double lineLengthTwo = object.calculateLineLength(10,30,17,19);
+
+        System.out.println("length of line one = " +lineLengthOne);
+        System.out.println("length of line two = " +lineLengthTwo);
+
+        object.callEqualsMethod(lineLengthOne,lineLengthTwo);
+        object.callCompareToMethod(lineLengthOne,lineLengthTwo);
     }
 }
