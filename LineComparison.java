@@ -1,7 +1,7 @@
-package com.bridgelabz.Day3PP2;
+package com.bridgelabz.Day3PP;
 
-class CommanMethods {
-    //This class contains methods for : equals,compareTo,power,squareRoot calculation.
+public class LineComparison {
+
     static boolean callEqualsMethod(String line1, String line2){
         System.out.print("RESULT OF equals method --> ");
         return line1.equals(line2);
@@ -12,38 +12,23 @@ class CommanMethods {
         return line1.compareTo(line2);
     }
 
-    static double calculatePower(double temp1, double temp2){
-        double powerResult = Math.pow((temp2 - temp1),2);
-        return powerResult;
-    }
+    public static void main(String[] args) {
+        System.out.println("LINE COMPARISON CODE");
 
-    static double calculateSquareRoot(double temp1, double temp2){
-        double squareRootResult = Math.sqrt(temp1 + temp2);
-        return squareRootResult;
-    }
+        double fX1 = 2, fX2 = 4;
+        double fY1 = 6, fY2 = 8;
 
-}
-class LineEvaluate extends CommanMethods{
-    //This class has line variables(instance) and calculate two lines values
+        double sX1 = 10, sX2 = 30;
+        double sY1 = 17, sY2 = 19;
 
-    //object level variables
-    //Line1 data points (firstX)
-    double fX1, fX2;
-    double fY1, fY2;
-
-    //Line2 data points (secondX)
-    double sX1, sX2;
-    double sY1, sY2;
-
-    void evaluate(){
-        double fxValueOfSquare = calculatePower(fX1,fX2);
-        double fyValueofSquare = calculatePower(fY1,fY2);
-        double lengthOfLine1 = calculateSquareRoot(fxValueOfSquare,fyValueofSquare);
+        double fxValueOfSquare = Math.pow((fX2-fX1),2);
+        double fyValueofSquare = Math.pow((fY2-fY1),2);
+        double lengthOfLine1 = Math.sqrt(fxValueOfSquare + fyValueofSquare);
         System.out.println("Line1 = " + lengthOfLine1);
 
-        double sxValueOfSquare = calculatePower(sX1,sX2);
-        double syValueofSquare = calculatePower(sY1,sY2);
-        double lengthOfLine2 = calculateSquareRoot(sxValueOfSquare,syValueofSquare);
+        double sxValueOfSquare = Math.pow((sX2-sX1),2);
+        double syValueofSquare = Math.pow((sY2-sY1),2);
+        double lengthOfLine2 = Math.sqrt(sxValueOfSquare + syValueofSquare);
         System.out.println("Line2 = " + lengthOfLine2);
 
         String line1 = String.valueOf(lengthOfLine1);
@@ -65,18 +50,3 @@ class LineEvaluate extends CommanMethods{
         }
     }
 }
-
-public class LineComparison {
-    public static void main(String[] args) {
-        System.out.println("LINE COMPARISON CODE");
-        LineEvaluate object = new LineEvaluate();
-        object.fX1 = 2; object.fX2 = 4;
-        object.fY1 = 6; object.fY2 = 8;
-
-        object.sX1 = 10; object.sX2 = 30;
-        object.sY1 = 17; object.sY2 = 19;
-
-        object.evaluate();
-    }
-}
-
